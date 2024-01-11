@@ -3,8 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./db/dbConnect');
-const userRoute = require('./routes/user');
 const formRoute = require('./routes/form');
+const path = require('path');
 
 dotenv.config();
 
@@ -20,6 +20,11 @@ connectDB();
 
 // Routes
 app.use('/form', formRoute);
+app.get('/', (req, res) => {
+  // Use res.sendFile() to send the index.html file in response
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 
 // Start the server
 app.listen(PORT, () => {
