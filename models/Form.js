@@ -6,6 +6,8 @@ const formSchema = new mongoose.Schema(
     fullName: { type: String, required: true },
     course: { type: String, required: true },
     year: { type: Number, required: true },
+    div: { type: String, required: true },
+    event: { type: String, required: true },
     gmail: { type: String, required: true },
     phoneNumber: { type: String, required: true },
   },
