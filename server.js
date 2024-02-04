@@ -4,6 +4,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./db/dbConnect');
 const formRoute = require('./routes/form');
+const messageRoutes = require('./routes/messageRoutes');
 const path = require('path');
 
 dotenv.config();
@@ -20,6 +21,7 @@ connectDB();
 
 // Routes
 app.use('/form', formRoute);
+app.use('/api', messageRoutes);
 app.get('/', (req, res) => {
   // Use res.sendFile() to send the index.html file in response
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
